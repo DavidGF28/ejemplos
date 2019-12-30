@@ -5,7 +5,7 @@ namespace clases;
 class materia{
     public $nombre;
     private $horas;
-    //private $titular;
+    private $titular;
     
     function getNombre() {
         return $this->nombre;
@@ -22,17 +22,30 @@ class materia{
     function setHoras(int $horas) {
         $this->horas = $horas;
     }
+    
+    function getTitular() {
+        return $this->titular;
+    }
 
-    function __construct(string $nombre,int $horas) {
+    function setTitular($titular) {
+        $this->titular = $titular;
+    }
+
+    function __construct($argumentos=[]) {
             $opcionales=[
-            "Materia"=>"",
+            "Nombre"=>"",
             "Horas"=>0,
-            "Titular"=>new profesor(),  
+//            "Titular"=>new profesor([
+//                "Nombre"=>"profesor por defecto",
+//                "Edad"=> 30,
+//                "Materias"=>[$this]
+//            ]),
+                "Titular"=>null,
         ];
-        //$argumentos=array_merge($opcionales,$argumentos);    
-        $this->nombre($argumentos["Nombre"]);
-        $this->horas ($argumentos["Horas"]);
-        $this->titular($argumentos["Titular"]);
+        $argumentos=array_merge($opcionales,$argumentos);    
+        $this->setNombre($argumentos["Nombre"]);
+        $this->setHoras ($argumentos["Horas"]);
+        $this->SetTitular($argumentos["Titular"]);
     }
 
     

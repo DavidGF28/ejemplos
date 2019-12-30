@@ -4,11 +4,11 @@ namespace clases;
 
 
 class profesor extends persona{
-    private $materia;
+    private $materias;
     private $sueldo=[];
     
-    function getMateria() {
-        return $this->materia;
+    function getMaterias() {
+        return $this->materias;
     }
 
     function getSueldo() {
@@ -16,9 +16,12 @@ class profesor extends persona{
     }
 
     function setMateria(Materia $materia) {
-        $this->materia = $materia;
+        $this->materias[] = $materia;
     }
-
+    function setMaterias($materias) {
+        $this->materias = $materias;
+    }
+       
     function setSueldo(int $mes,float $sueldo) {
         $this->sueldo[$mes] = $sueldo;
     }
@@ -32,7 +35,7 @@ class profesor extends persona{
         $argumentos=array_merge($opcionales,$argumentos);
         
         $this->sueldo= array_fill(0,12,0.0);
-        $this->setMateria($argumentos["Materia"]);
+        $this->setMaterias($argumentos["Materias"]);
         $this->setSueldo($argumentos["Mes"],$argumentos["Sueldo"]);
          parent::__construct([
             "Nombre"=>$argumentos["Nombre"],

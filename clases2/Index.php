@@ -48,7 +48,10 @@ use clases\profesor;
         $objetoprofesor=new profesor ([
                "Nombre"=>"Pepe",
                "Edad"=> 56,
-               "Materia"=>new Materia("Fisica",10),
+               "Materias"=> [new Materia([
+                   "Nombre"=>"Fisica",
+                   "Horas"=>10
+                   ])],
                "Mes"=>10,
                "Sueldo"=>1200,
             ]);
