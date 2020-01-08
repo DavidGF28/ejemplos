@@ -4,10 +4,10 @@
     <input type="number" name="numero[]" id="n1">
     </div>
      <div>
-    <label for="n2">Introduce numero 1</label>
+    <label for="n2">Introduce numero 2</label>
     <input type="number" name="numero[]" id="n2">
     </div> <div>
-    <label for="n3">Introduce numero 1</label>
+    <label for="n3">Introduce numero 3</label>
     <input type="number" name="numero[]" id="n3">
     </div>
     <div>
