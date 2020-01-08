@@ -24,10 +24,24 @@ class siteController extends Controller{
           "menu"=>(new \clases\Menu($this->miMenu,"Inicio"))->html()
     ]);
     }
-        public function Ejercicio1Accion(){
+        public function Ejercicio1Accion($objeto){
+            $v="";
+                        
+            if (empty ($objeto->getValores())){
+                $vista="ejercicio1";
+                $pie=$this->miPie;
+            }else{$pie= "estaban ordenados ascendentemente";
+                $vista="resultadoEjercicio1";
+            $v=$objeto->getValores()['numero'];
+            sort($v);
+            if ($v!==$objeto->getValores()['numero']){
+            $pie="no estaban ordenados ascendentemente";}
+            $v= join(",", $v);
+            }
       $this->render([
-          "vista"=>"ejercicio1",
-          "pie"=> $this->miPie,
+          "vista"=>$vista,
+          "pie"=> $pie,
+          "resultado"=>$v,
           "menu"=>(new \clases\Menu($this->miMenu,"Ejercicio1"))->html()
     ]);
    }
