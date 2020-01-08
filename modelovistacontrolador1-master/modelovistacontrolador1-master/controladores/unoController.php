@@ -11,7 +11,19 @@ class unoController extends Controller{
             "Inicio"=>$this->crearRuta(["accion"=>"index"]),
             "Listado 1"=>$this->crearRuta(["accion"=>"listar"]),
             "Entrada"=>$this->crearRuta(["accion"=>"entrada"]),
-            "Listado 2"=>$this->crearRuta(["accion"=>"listado2"])
+            "Listado 2"=>$this->crearRuta(["accion"=>"listado2"]),
+            "Hola"=>$this->crearRuta([
+                "accion"=>"hola",
+                "controlador"=>"uno"
+                ]),
+            "Adios" => $this->crearRuta([
+                "accion"=>"adios",
+                "controlador"=>"uno"
+                ]),  
+                "inicioUno"=> $this->crearRuta([
+                    "controlador"=>"uno",
+                    "accion"=>"index"
+                    ])
         ],"Inicio"))->html()
             ]);
     }
@@ -19,4 +31,30 @@ class unoController extends Controller{
     public function holaAccion(){
         echo "Hola Clase";
     }
+    
+    public function adiosAccion(){
+        $this->render([
+            "vista"=>"dos",
+            "pie"=> "estamos en clase de Poo",
+            "menu"=>(new \clases\Menu([
+            "Inicio"=>$this->crearRuta(["accion"=>"index"]),
+            "Listado 1"=>$this->crearRuta(["accion"=>"listar"]),
+            "Entrada"=>$this->crearRuta(["accion"=>"entrada"]),
+            "Listado 2"=>$this->crearRuta(["accion"=>"listado2"]),
+            "Hola"=>$this->crearRuta([
+                "accion"=>"hola",
+                "controlador"=>"uno"
+                ]),
+            "Adios" => $this->crearRuta([
+                "accion"=>"adios",
+                "controlador"=>"uno"
+                ]),  
+                "inicioUno"=> $this->crearRuta([
+                    "controlador"=>"uno",
+                    "accion"=>"index"
+                    ])
+        ],"Adios"))->html(),
+            "mensaje"=>"Estoy en el controlador uno y la accion adios"
+            ]);
+ }
 }
