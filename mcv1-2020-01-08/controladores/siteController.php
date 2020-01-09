@@ -45,18 +45,27 @@ class siteController extends Controller{
           "menu"=>(new \clases\Menu($this->miMenu,"Ejercicio1"))->html()
     ]);
    }
-           public function Ejercicio2Accion(){
+           public function Ejercicio2Accion($objeto){
+               $vocales=0;
+               $vista="ejercicio2";
+               
+               if(!empty($objeto->getValores())){
+                  $vista="rEjercicio2";
+                  $texto= new \clases\Frase ($objeto->getValores()['frase']);
+                  $vocales=$texto->getVocales();
+               }
       $this->render([
-          "vista"=>"ejercicio2",
-          "pie"=> $this->miPie,
-          "menu"=>(new \clases\Menu($this->miMenu,"Ejercicio1"))->html()
+          "vista"=>$vista,
+          "pie"=> "ejercicio 2 de practica 4",
+          "resultado"=>$vocales,
+          "menu"=>(new \clases\Menu($this->miMenu,"Ejercicio2"))->html()
     ]);
    }
               public function Ejercicio3Accion(){
       $this->render([
           "vista"=>"ejercicio3",
           "pie"=> $this->miPie,
-          "menu"=>(new \clases\Menu($this->miMenu,"Ejercicio1"))->html()
+          "menu"=>(new \clases\Menu($this->miMenu,"Ejercicio3"))->html()
     ]);
    }
 }
