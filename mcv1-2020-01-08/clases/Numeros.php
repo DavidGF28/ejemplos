@@ -40,13 +40,13 @@ class Numeros {
     }
     public function setModa(){
         $salida= array_count_values($this->getValores());
-        $repeticionesMaximas=max($salida);
-        $this->Moda=[];
-        foreach ($salida as $numeros=>$repes){
-            If($repes==$repeticionesMaximas){
-            $this->Moda[]=$numeros;
-            }
-        }
+        arsort($salida);
+        $this->Moda=array_key_first($salida);
+        if (count($salida)>1 and (reset($salida)==next($salida)))
+            $this->Moda = false;
+        else 
+            $this->Moda = array_key_first($salida);
+
     }
     public function setMediana(){
      sort ($this->valores);
