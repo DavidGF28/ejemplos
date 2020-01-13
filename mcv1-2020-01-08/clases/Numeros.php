@@ -30,4 +30,13 @@ class Numeros {
             }
         }
     }
+    public function setMediana(){
+    $this->valores=Array();
+    sort ($valores);
+    $cantidad = count($valores);
+    $posMediana=($cantidad+1)/2;
+    }
+    public function setDesviacion(){
+        stats_standard_deviation($valores);
+    }
 }
