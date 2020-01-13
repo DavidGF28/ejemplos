@@ -61,11 +61,24 @@ class siteController extends Controller{
           "menu"=>(new \clases\Menu($this->miMenu,"Ejercicio2"))->html()
     ]);
    }
-              public function Ejercicio3Accion(){
-      $this->render([
-          "vista"=>"ejercicio3",
-          "pie"=> $this->miPie,
-          "menu"=>(new \clases\Menu($this->miMenu,"Ejercicio3"))->html()
-    ]);
-   }
+              public function Ejercicio3Accion($objeto){
+                  if(empty($objeto->getValores())){
+                  // mostrar formulario    
+                  $this->render([
+                    "vista"=>"Ejercicio3",
+                    "pie"=> "ejercicio 3 de practica 4",
+                    "menu"=>(new \clases\Menu($this->miMenu,"Ejercicio3"))->html()
+                    ]);
+                      
+                  }else{
+                      // calcular
+                      $n=new \clases\Numeros($objeto->getValores()['numeros']);
+                      $this->render([
+                        "vista"=>"rEjercicio3",
+                        "pie"=> "ejercicio 3 de practica 4",
+                        "resultado"=>$n->getResultados(),
+                        "menu"=>(new \clases\Menu($this->miMenu,"Ejercicio3"))->html()
+                    ]);
+                  }
+              }               
 }

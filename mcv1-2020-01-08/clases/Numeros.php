@@ -4,9 +4,27 @@
 namespace clases;
 
 class Numeros {
-    public function __construct($valores=[]) {
-    $this->valores =$valores;
+    public $valores;
+    public $Media;
+    public $Moda;
+    public $Mediana;
+    public $Desviacion;
+    function getValores() {
+        return $this->valores;
     }
+
+    function setValores($valores) {
+        $this->valores = $valores;
+    }
+
+        public function __construct($valores=[]) {
+    $this->valores =$valores;
+    $this->setMedia();
+    $this->setModa();
+    $this->setMediana();
+    $this->setDesviacion();
+    }
+    
     public function GetMedia(){
     return $this->Media;}
     public function GetModa(){
@@ -17,26 +35,41 @@ class Numeros {
     return $this->Desviacion;
     }
     public function setMedia(){
-        $this->media= array_sum($this->getValores())/count($this->getValores());
+        $this->Media= array_sum($this->getValores())/count($this->getValores());
         
     }
     public function setModa(){
         $salida= array_count_values($this->getValores());
         $repeticionesMaximas=max($salida);
-        $this->moda=[];
+        $this->Moda=[];
         foreach ($salida as $numeros=>$repes){
             If($repes==$repeticionesMaximas){
-            $this->moda[]=$numeros;
+            $this->Moda[]=$numeros;
             }
         }
     }
     public function setMediana(){
-    $this->valores=Array();
-    sort ($valores);
-    $cantidad = count($valores);
+     sort ($this->valores);
+    $cantidad = count($this->valores);
     $posMediana=($cantidad+1)/2;
+    $this->Mediana=$posMediana;
     }
     public function setDesviacion(){
-        stats_standard_deviation($valores);
+        $c=0;
+        foreach ($this->getValores() as $v){
+            $c+=pow($v-$this->GetMedia(),2);
+        }
+        $c=$c/count($this->valores);
+        $this->Desviacion=sqrt($c);
+    }
+    
+    public function getResultados(){
+        $salida="<ul>";
+        $salida.="<li>la media es: ".$this->GetMedia()."</li>";
+        $salida.="<li>la moda es: ".$this->GetModa()."</li>";
+        $salida.="<li>la mediana es: ".$this->GetMediana()."</li>";
+        $salida.="<li>la desviacion es: ".$this->GetDesviacion()."</li>";
+        $salida.="</ul>";
+        return $salida;
     }
 }
