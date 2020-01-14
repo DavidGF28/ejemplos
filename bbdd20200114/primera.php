@@ -16,3 +16,9 @@ $resultado->data_seek(0);
 //volver a ver
 $salidaArray=$resultado->fetch_all(MYSQLI_ASSOC);
 var_dump($salidaArray);
+//un registro
+$resultado->data_seek(0);
+$salidaArray=$resultado->fetch_assoc();
+var_dump($salidaArray);
+$salidaArray=$resultado->fetch_assoc();
+var_dump($salidaArray);
