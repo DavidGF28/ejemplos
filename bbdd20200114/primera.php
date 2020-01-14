@@ -11,3 +11,8 @@ var_dump($resultado);
 //ver result
 $salidaArray=$resultado->fetch_all();
 var_dump($salidaArray);
+//rebobinar
+$resultado->data_seek(0);
+//volver a ver
+$salidaArray=$resultado->fetch_all(MYSQLI_ASSOC);
+var_dump($salidaArray);
