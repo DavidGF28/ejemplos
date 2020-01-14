@@ -51,8 +51,8 @@ class Numeros {
     public function setMediana(){
      sort ($this->valores);
     $cantidad = count($this->valores);
-    $posMediana=($cantidad+1)/2;
-    $this->Mediana=$posMediana;
+    $posMediana=($cantidad)/2;
+    $this->Mediana=($this->valores[$posMediana]+$this->valores[$posMediana-1])/2;
     }
     public function setDesviacion(){
         $c=0;
