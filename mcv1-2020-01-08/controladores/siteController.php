@@ -21,7 +21,7 @@ class siteController extends Controller{
       $this->render([
           "vista"=>"index",
           "pie"=> $this->miPie,
-          "menu"=>(new \clases\Menu($this->miMenu,"Inicio"))->html()
+          "menu"=>(new \Clases\Menu($this->miMenu,"Inicio"))->html()
     ]);
     }
         public function Ejercicio1Accion($objeto){
