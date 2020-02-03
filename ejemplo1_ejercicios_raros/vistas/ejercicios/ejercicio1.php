@@ -1,4 +1,4 @@
-<form method="get" action="<?= $this->crearRuta(["accion" => "ejercicio1"]) ?>">
+<form method="get" action="<?= $this->crearRuta(["accion" => "rEjercicio1"]) ?>">
     <div>
         <label for="n1">numero 1</label>
         <input type="number" name="numero[]" id="n1">
