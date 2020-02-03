@@ -41,9 +41,7 @@ class Numeros {
 
     function setResta() {
                 $r=0;
-        foreach ($this->valores as $d){
-            $r-=$d;
-        }
+                $r=0;
         $this->resta = $r;
     }
 
@@ -55,12 +53,11 @@ class Numeros {
         $this->producto = $p;
     }
 
-    function setCociente($cociente) {
+    function setCociente() {
         $this->cociente = $cociente;
     }
 
-    function setResto($resto) {
-        
+    function setResto() {
         $this->resto = $resto;
     }
    
