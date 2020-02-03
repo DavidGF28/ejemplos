@@ -31,23 +31,38 @@ class siteController extends Controller {
     }
 
     public function Ejercicio1Accion($objeto) {
-                $this->render([
+        //var_dump($objeto->getValores()["numero"]);
+        if (isset($objeto->getValores()["numero"])){
+            $n=new \clases\creadas\Numeros($objeto->getValores()["numero"]);
+        }else{
+            $n= new \clases\creadas\Numeros([0,0]);
+        }
+            
+        $this->render([
             "vista" => "ejercicios/ejercicio1",
             "pie" => $this->miPie,
-            "menu" => (new \Clases\Menu($this->miMenu, "Ejercicio1"))->html()
+            "menu" => (new \Clases\Menu($this->miMenu, "Ejercicio1"))->html(),
+            "resultados"=>$n,
         ]);
     }
 
     public function Ejercicio2Accion($objeto) {
-                $this->render([
+        //var_dump($objeto->getValores()["numero"]);
+        if (isset($objeto->getValores()["numero"])){
+            $n=new \clases\creadas\Numeros($objeto->getValores()["numero"]);
+        }else{
+            $n= new \clases\creadas\Numeros([0,0]);
+        }
+        $this->render([
             "vista" => "ejercicios/ejercicio2",
             "pie" => $this->miPie,
-            "menu" => (new \Clases\Menu($this->miMenu, "Ejercicio2"))->html()
+            "menu" => (new \Clases\Menu($this->miMenu, "Ejercicio2"))->html(),
+            "resultados"=>$n,    
         ]);
     }
 
     public function Ejercicio3Accion($objeto) {
-                $this->render([
+        $this->render([
             "vista" => "ejercicios/ejercicio3",
             "pie" => $this->miPie,
             "menu" => (new \Clases\Menu($this->miMenu, "Ejercicio3"))->html()
@@ -55,33 +70,35 @@ class siteController extends Controller {
     }
 
     public function Ejercicio4Accion($objeto) {
-                $this->render([
+        $this->render([
             "vista" => "ejercicios/ejercicio4",
             "pie" => $this->miPie,
             "menu" => (new \Clases\Menu($this->miMenu, "Ejercicio4"))->html()
         ]);
     }
 
-    public function Ejercicio5Accion($objeto){
-                $this->render([
+    public function Ejercicio5Accion($objeto) {
+        $this->render([
             "vista" => "ejercicios/ejercicio5",
             "pie" => $this->miPie,
             "menu" => (new \Clases\Menu($this->miMenu, "Ejercicio5"))->html()
         ]);
     }
+
     public function Ejercicio6Accion($objeto) {
-                $this->render([
+        $this->render([
             "vista" => "ejercicios/ejercicio6",
             "pie" => $this->miPie,
             "menu" => (new \Clases\Menu($this->miMenu, "Ejercicio6"))->html()
         ]);
-    }    
-    
+    }
+
     public function Ejercicio7Accion($objeto) {
-                $this->render([
+        $this->render([
             "vista" => "ejercicios/ejercicio7",
             "pie" => $this->miPie,
             "menu" => (new \Clases\Menu($this->miMenu, "Ejercicio7"))->html()
         ]);
     }
+
 }

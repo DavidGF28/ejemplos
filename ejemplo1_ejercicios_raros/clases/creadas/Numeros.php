@@ -1,19 +1,69 @@
 <?php
 
-namespace clases;
+namespace clases\creadas;
 
 class Numeros {
     
     public $suma;
     public $valores;
     public $resultados;
-    
-    function __construct() {
-        $this->suma = $suma;
-        $this->valores = $valores;
-        $this->resultados = $resultados;
+    public $resta;
+    public $producto;
+    public $cociente;
+    public $resto;
+       
+    function __construct($n) {
+        //$this->suma = $suma;
+        $this->valores = $n;
+        $this->setSuma();
+        $this->setResta();
+        $this->setProducto();
+        //$this->setCociente();
+        //$this->setResto();
+        //$this->resultados = $resultados;
     }
 
+    function getResta() {
+        return $this->resta;
+    }
+
+    function getProducto() {
+        return $this->producto;
+    }
+
+    function getCociente() {
+        return $this->cociente;
+    }
+
+    function getResto() {
+        return $this->resto;
+    }
+
+    function setResta() {
+                $r=0;
+        foreach ($this->valores as $d){
+            $r-=$d;
+        }
+        $this->resta = $r;
+    }
+
+    function setProducto() {
+                $p=1;
+        foreach ($this->valores as $d){
+            $p*=$d;
+        }
+        $this->producto = $p;
+    }
+
+    function setCociente($cociente) {
+        $this->cociente = $cociente;
+    }
+
+    function setResto($resto) {
+        
+        $this->resto = $resto;
+    }
+   
     function getSuma() {
         return $this->suma;
     }
@@ -26,8 +76,12 @@ class Numeros {
         return $this->resultados;
     }
 
-    function setSuma($suma) {
-        $this->suma = $suma;
+    function setSuma() {
+        $s=0;
+        foreach ($this->valores as $d){
+            $s+=$d;
+        }
+        $this->suma=$s;
     }
 
     function setValores($valores) {
@@ -38,5 +92,6 @@ class Numeros {
         $this->resultados = $resultados;
     }
 
-
+//funciones propias
+    
 }
